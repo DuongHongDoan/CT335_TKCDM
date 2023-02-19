@@ -1,38 +1,33 @@
 # **Lab 1: Cấu hình thiết bị Cisco cơ bản**
 ## **Topology**
----
 ![topology_Lab1](https://user-images.githubusercontent.com/93761311/219910346-3779e290-8334-4c94-8db5-759c7759d2d3.PNG)
 
 ## **Các thành phần trong sơ đồ mạng**
----
 | Phần cứng         | Số lượng  | Mô tả                             |
 | :------------     |:---------:| :-----                            |
 | Router (1841)     | 1         |Thiết bị kết nối nhiều nhánh mạng  |
 | Switch (2950-24)  | 1         |Thiết bị kết nối các thành phần trong cùng mạng|
 | PC                | 3         |Các máy tính - thiết bị đầu cuối   |
-| Cáp console       |1          |Kết nối PC1 (cổng RS) với Router (cổng console|
+| Cáp console       |1          |Kết nối PC1 (cổng RS) với Router (cổng console)|
 | Cáp chéo          |1          |Kết nối PC1 (cổng Fa) với Router (cổng Fa0/0) |
 | Cáp thẳng         |3          |Kết nối PC2 và PC3 (cổng Fa) với Switch (cổng Fa0/2, Fa0/3) và Switch (cổng Fa0/1) với Router (cổng Fa0/1)  |
 ## **Kịch bản**
----
->Cho địa chỉ IP là **198.133.219.0/24**, với **4 bit** mượn cho mạng con.
+- Cho địa chỉ IP là **198.133.219.0/24**, với **4 bit** mượn cho mạng con.
 
->Số lượng mạng con có thể sử dụng tối đa:  **$2^4$ = 16**.
+- Số lượng mạng con có thể sử dụng tối đa:  **$2^4$ = 16**.
 
->Số lượng máy chủ có thể sử dụng trên mỗi mạng con: **$2^4 - 2$ = 14**.
+- Số lượng máy chủ có thể sử dụng trên mỗi mạng con: **$2^4 - 2$ = 14**.
 
->Do ta mượn 4 bit phần host để làm mạng con -> địa chỉ IP ta có dạng **198.133.219.0/28**, tương đương với mặt nạ mạng con là **255.255.255.240** (11111111.11111111.11111111.<span style="color: red">1111</span>0000)
+- Do ta mượn 4 bit phần host để làm mạng con -> địa chỉ IP ta có dạng **198.133.219.0/28**, tương đương với mặt nạ mạng con là **255.255.255.240** (11111111.11111111.11111111.**1111**0000)
 
 ### *<span style="color: yellow">Bảng địa chỉ</span>*
----
 ![IP_Address_Table](https://user-images.githubusercontent.com/93761311/219934973-e508a411-c13b-4b2a-9d02-6bae87de0822.PNG)
 
 ##### *<span style="color: red">\*Các địa chỉ IP đầu tiên và cuối cùng trong một subnet, cách làm tương tự như 3 dòng đầu đã làm mẫu</span>*
 ## **Bài làm**
----
 ### **1.** Định cấu hình ***global*** cho Router 
 #### **1.1.** Kết nối vật lý
->Kết nối các cáp console, cáp chéo, cáp thẳng theo **Mô tả** trong phần **Các thành phần trong sơ đồ mạng**
+>Kết nối các cáp console, cáp chéo, cáp thẳng theo **Mô tả** trong phần **Các thành phần trong sơ đồ mạng**.
 #### **1.2.** Kết nối PC1 với Router qua Terminal
 ![Desktop_PC1](https://user-images.githubusercontent.com/93761311/219912187-c308afd1-fa42-48f6-a813-e0699a8d0f89.PNG)
 
@@ -50,12 +45,12 @@
 
 >Sau khi chúng ta thực hiện các dòng trên, thì bây giờ chúng ta đang ở *chế độ thực thi người dùng* (User EXEC mode), Đây là chế độ "chỉ xem", chỉ có một số lệnh cơ bản để xem cấu hình của router. Với dấu nhắc lệnh là "**>**".
 
->Để vào *chế độ đặc quyền* (Privilleged EXEC mode), ta sử dụng lệnh **enable**. Đây là chế độ dùng để cấu hình, giám sát và quản lý router -> nó rất quan trọng nên cần phải được bảo mật. Với dấu nhắc lệnh là "**#**".
+>Để vào *chế độ đặc quyền* (Privileged EXEC mode), ta sử dụng lệnh **enable**. Đây là chế độ dùng để cấu hình, giám sát và quản lý router -> nó rất quan trọng nên cần phải được bảo mật. Với dấu nhắc lệnh là "**#**".
 
 ![privilleged_EXEC_mode](https://user-images.githubusercontent.com/93761311/219917177-e3262dc1-49b4-41cc-9ff0-7ef6c40522a9.PNG)
 
 #### **1.3.** Cấu hình tên router trong cấu hình ***global***
->Tại chế độ *privilleged EXEC* ta nhập lệnh "**config terminal**" hoặc câu lệnh rút gọn "**conf t**", để vào chế độ *global configuration*. Dấu nhắc lệnh là "**Router(config)#**"
+>Tại chế độ *privileged EXEC* ta nhập lệnh "**config terminal**" hoặc câu lệnh rút gọn "**conf t**", để vào chế độ *global configuration*. Dấu nhắc lệnh là "**Router(config)#**"
 
 ![global_conf](https://user-images.githubusercontent.com/93761311/219919145-cc4c1edb-352b-48dd-b72e-f84543152726.PNG)
 
@@ -102,9 +97,9 @@ login
 ```
 ![pw_vty](https://user-images.githubusercontent.com/93761311/219933541-cafb0090-a91f-472d-8bb7-1103849460f0.PNG)
 ### *<span style="color: red">\*Lưu ý :</span>*
->Để trở lại chế độ trước đó, ta dùng lệnh `exit`
+- Để trở lại chế độ trước đó, ta dùng lệnh `exit`
 
->Để trở lại chế độ *privileged EXEC*, ta dùng lệnh `end` hoặc tổ hợp phím "**Ctrl+Z**"
+- Để trở lại chế độ *privileged EXEC*, ta dùng lệnh `end` hoặc tổ hợp phím "**Ctrl+Z**"
 
 ### **3.** Cấu hình các giao diện trên Router1
 >Từ **Bảng địa chỉ**, chúng ta sẽ lấy "subnet0" là nhánh mạng **198.133.219.0/28** để đặt nhánh mạng cho kết nối của PC1 với Router, như vậy ta có:
@@ -161,7 +156,7 @@ login
 
 >Tại chế độ *User EXEC* ta nhập lệnh `enable` hoặc `en`, để vào chế độ *privileged EXEC*. Dấu nhắc lệnh là "**Router#**"
 
->Tại chế độ *privilleged EXEC* ta nhập lệnh `config terminal` hoặc câu lệnh rút gọn `conf t`, để vào chế độ *global configuration*. Dấu nhắc lệnh là "**Router(config)#**"
+>Tại chế độ *privileged EXEC* ta nhập lệnh `config terminal` hoặc câu lệnh rút gọn `conf t`, để vào chế độ *global configuration*. Dấu nhắc lệnh là "**Router(config)#**"
 
 ![userToprivileged](https://user-images.githubusercontent.com/93761311/219938495-3305e4d5-ea29-4473-a754-a66807a87ddf.PNG)
 
@@ -184,10 +179,13 @@ login
 ![copy_RAMtoNVRAM_Switch](https://user-images.githubusercontent.com/93761311/219939428-5e6bf1ee-2b79-460b-8935-8243443b3ae8.PNG)
 #### **5.9** Cấu hình địa chỉ IP cho PC2, PC3.
 >PC2 và PC3 nằm trên cùng nhánh mạng **198.133.219.16/28**, nên địa chỉ IP lần lượt của hai PC được cấp là **198.133.219.17** và **198.133.219.18**. Địa chỉ cổng mặc định (default gateway) của hai PC, chính là giao diện Fa0/1 của Router1 **198.133.219.30**
+
 >Làm cấu hình tương tự như PC1.
 #### **5.10** Kiểm tra kết nối mạng.
 - ping từ PC2 qua PC3:
+
 ![ping_PC2toPC3](https://user-images.githubusercontent.com/93761311/219939845-cb94b99f-114c-4c41-94dc-52928fd231b5.PNG)
 
 - ping từ PC2 qua PC1:
+
 ![ping_PC2toPC1](https://user-images.githubusercontent.com/93761311/219939859-be01f6b5-3659-4a4c-817c-0927f74c3545.PNG)
