@@ -10,7 +10,7 @@
 | Router (1841)     | 1         |Thiết bị kết nối nhiều nhánh mạng  |
 | Switch (2950-24)  | 1         |Thiết bị kết nối các thành phần trong cùng mạng|
 | PC                | 3         |Các máy tính - thiết bị đầu cuối   |
-| Cáp console       |1          |Kết nối PC1 (cổng RS) với Router (cổng console|
+| Cáp console       |1          |Kết nối PC1 (cổng RS) với Router (cổng console)|
 | Cáp chéo          |1          |Kết nối PC1 (cổng Fa) với Router (cổng Fa0/0) |
 | Cáp thẳng         |3          |Kết nối PC2 và PC3 (cổng Fa) với Switch (cổng Fa0/2, Fa0/3) và Switch (cổng Fa0/1) với Router (cổng Fa0/1)  |
 ## **Kịch bản**
@@ -187,7 +187,9 @@ login
 >Làm cấu hình tương tự như PC1.
 #### **5.10** Kiểm tra kết nối mạng.
 - ping từ PC2 qua PC3:
+  
 ![ping_PC2toPC3](https://user-images.githubusercontent.com/93761311/219939845-cb94b99f-114c-4c41-94dc-52928fd231b5.PNG)
 
 - ping từ PC2 qua PC1:
+  
 ![ping_PC2toPC1](https://user-images.githubusercontent.com/93761311/219939859-be01f6b5-3659-4a4c-817c-0927f74c3545.PNG)
