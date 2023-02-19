@@ -183,9 +183,7 @@ login
 >Làm cấu hình tương tự như PC1.
 #### **5.10** Kiểm tra kết nối mạng.
 - ping từ PC2 qua PC3:
-
 ![ping_PC2toPC3](https://user-images.githubusercontent.com/93761311/219939845-cb94b99f-114c-4c41-94dc-52928fd231b5.PNG)
 
 - ping từ PC2 qua PC1:
-
 ![ping_PC2toPC1](https://user-images.githubusercontent.com/93761311/219939859-be01f6b5-3659-4a4c-817c-0927f74c3545.PNG)
