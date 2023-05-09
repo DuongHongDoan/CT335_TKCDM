@@ -51,19 +51,25 @@
 
 #### **3.** Kiểm tra kết nối.
 **3.1.** Từ PC đến default gateway của nó --> **thành công**
+
 ![ping_PC_Gw](https://user-images.githubusercontent.com/93761311/236986051-dbbe0a4f-f59a-4f59-91bc-e2fe51f432cc.png)
+
 **Nếu không thành công thì kiểm tra lại cáp và cấu hình 1 lần nữa*
 
 **3.2.** Từ Router2 đến Router khác --> **thành công**
+
 ![ping_R2_R](https://user-images.githubusercontent.com/93761311/236986628-38236f94-ddaa-445d-bab9-641a9eeaf121.png)
+
 **Nếu không thành công thì kiểm tra lại cáp và cấu hình 1 lần nữa*
 
 **3.3.** Từ PC đến PC khác nhánh mạng và R1 đến R3 --> **không thành công**
+
 ![image](https://user-images.githubusercontent.com/93761311/236988100-8c678474-0e02-4bfc-9671-192145cc15a5.png)
 
 **Không thành công là bởi vì các router chưa được cấu hình vạch đường, chỉ biết các kết nối trực tiếp cùng nhánh mạng, các kết nối nhánh mạng khác không biết, và khi gói tin đưa đến router và trong bảng vạch đường không thấy thì sẽ vứt gói tin đi*
 
 #### **4.** Cấu hình vạch đường tĩnh.
+
 **4.1.** Cấu hình tĩnh bằng địa chỉ router kế tiếp (Next-Hop).
 `R1(config)# ip route <đ/c mạng đi đến> <mặt nạ mạng con đi đến> <đ/c IP giao diện Net-Hop> `
 
@@ -74,10 +80,13 @@
 **Tên giao diện đi ra ví dụ như **Serial0/0/0***
 
 **4.3.** Cấu hình tĩnh mặc định. (Cách này thường dùng nhất)
+
 `R1(config)# ip route 0.0.0.0 0.0.0.0 <đ/c IP giao diện Net-Hop or interface name> `
 
 **Câu lệnh này có nghĩa là đến nhánh mạng bất kì bằng địa chỉ IP hoặc giao diện của router biên*
+
 #### **5.** Kiểm tra bảng vạch đường.
+
 > Dùng lệnh `show ip route` để kiểm tra bảng vạch đường của từng router. Lúc này, các router đã có thể nhìn thấy tất cả các nhánh mạng có trong topo, có thể trao đổi thông tin các gói tin qua lại mà không bị vứt gói.
 
 ![show-ip-route-routed](https://user-images.githubusercontent.com/93761311/237002928-4baac9ea-98ee-4b69-b9ea-70f43020576b.png)
